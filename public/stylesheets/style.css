@@ -1,8 +1,16 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: darkgray;
 }
 
 a {
   color: #00B7FF;
+}
+#contents {
+  list-style-type: none;
+}
+.dataform {
+  width: 70%;
+  margin: 5px auto;
 }

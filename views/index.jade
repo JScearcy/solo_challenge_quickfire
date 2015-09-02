@@ -1,8 +1,15 @@
 extends layout
 
 block content
-  h1 Total students:&nbsp
-    span(id='Total') #{students.length}
-  ul(id='contents')
-    each student in students
-      li(id='#{student.firstname}#{student.lastname}') #{student.firstname} #{student.lastname}
+  .dataform
+    form(id='NewStudent' method='POST')
+      label(for='firstName') First Name:
+      input(type='text' id='firstName' name='firstName' placeholder='First Name..')
+      label(for='lastName') Last Name:
+      input(type='text' id='lastName' name='lastName' placeholder='Last Name..')
+      input(type='submit' id='Submit' value='Add New Student')
+    h1 Total students:&nbsp
+      span(id='Total') #{students.length}
+    ul(id='contents')
+      each student, index in students
+        li(id='#{student.firstname}#{student.lastname}') #{index + 1 + '. '} #{student.firstname} #{student.lastname}

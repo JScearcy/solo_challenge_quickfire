@@ -21,21 +21,25 @@ router.post('/', function(req, res, next) {
     firstname: req.body.firstName,
     lastname: req.body.lastName
   };
-  fs.readFile(file, function(err, data){
-    if (err) {
-      console.log(err);
-      res.sendStatus(500);
-    }
-    var studentsArray = JSON.parse(data);
-    studentsArray.push(postData);
-    fs.writeFile(file, JSON.stringify(studentsArray), function(err){
-      if (err) {
-        console.log(err);
-        res.sendStatus(500);
-      }
-      res.sendStatus(200);
-    })
-  })
+   if(postData.firstname != '' && postData.lastname != '') {
+     fs.readFile(file, function (err, data) {
+       if (err) {
+         console.log(err);
+         res.sendStatus(500);
+       }
+       var studentsArray = JSON.parse(data);
+       studentsArray.push(postData);
+       fs.writeFile(file, JSON.stringify(studentsArray), function (err) {
+         if (err) {
+           console.log(err);
+           res.sendStatus(500);
+         }
+         res.sendStatus(200);
+       })
+     })
+   } else {
+     res.sendStatus(200);
+   }
 });
 
 module.exports = router;
