@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 Total students:&nbsp
+    span(id='Total') #{students.length}
+  ul(id='contents')
+    each student in students
+      li(id='#{student.firstname}#{student.lastname}') #{student.firstname} #{student.lastname}

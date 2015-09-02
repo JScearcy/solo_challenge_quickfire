@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Students
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    form(id='NewStudent' method='POST')
+      label(for='firstName') First Name:
+      input(type='text' id='firstName' name='firstName' placeholder='First Name..')
+      label(for='lastName') Last Name:
+      input(type='text' id='lastName' name='lastName' placeholder='Last Name..')
+      input(type='submit' id='Submit' value='Add New Student')
+    block content
+    script(src='https://code.jquery.com/jquery-2.1.4.min.js' type='text/javascript')
+    script(src='/javascripts/app.js' type='text/javascript')
